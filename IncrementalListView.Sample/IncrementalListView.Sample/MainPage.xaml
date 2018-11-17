@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:IncrementalListView.Sample"
+             xmlns:incrementalList="clr-namespace:XF.IncrementalListView;assembly=XF.IncrementalListView"
+             x:Class="IncrementalListView.Sample.MainPage">
+    <ContentPage.BindingContext>
+        <local:ViewModel x:Name="vm" />
+    </ContentPage.BindingContext>
+
+    <incrementalList:IncrementalListView x:Name="list"
+                                         PageSize="20"
+                                         RowHeight="50"
+                                         SelectionMode="None"
+                                         IncrementalSource="{Binding .}"
+                                         ItemsSource="{Binding Data}">
+        <incrementalList:IncrementalListView.ItemTemplate>
+            <DataTemplate x:DataType="x:String">
+                <TextCell Text="{Binding .}" />
+            </DataTemplate>
+        </incrementalList:IncrementalListView.ItemTemplate>
+
+        <incrementalList:IncrementalListView.Footer>
+            <ActivityIndicator HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HeightRequest="20"
+                               WidthRequest="20"
+                               IsRunning="{Binding IsLoadingIncrementally, Source={x:Reference list}}"
+                               IsVisible="{Binding IsLoadingIncrementally, Source={x:Reference list}}" />
+        </incrementalList:IncrementalListView.Footer>
+    </incrementalList:IncrementalListView>
+</ContentPage>
