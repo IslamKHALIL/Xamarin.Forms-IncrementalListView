@@ -3,5 +3,5 @@ I created this control to extend the capabilities of the ListView control in Xam
 # Usage:
 You can use this control as a normal ListView with all its capabilities. But to use the Incremental Loading feature you have to provide an implementation of the interface IIncrementalSource as the source of paging data.
 
-Download NuGet XF.IncrementalListView to use directly or use the Package Manager console:
-    Install-Package XF.IncrementalListView -Version 1.0.0
+Download NuGet "XF.IncrementalListView" to use directly 
+or use the Package Manager console:    Install-Package XF.IncrementalListView -Version 1.0.0
