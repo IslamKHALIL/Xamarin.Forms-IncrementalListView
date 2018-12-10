@@ -41,12 +41,11 @@ namespace XF.IncrementalListView
         private IList itemsSource;
 
         public IncrementalListView()
-            : this(ListViewCachingStrategy.RecycleElementAndDataTemplate)
         {
+            ItemAppearing += OnItemAppearing;
         }
 
-        public IncrementalListView(ListViewCachingStrategy cachingStrategy)
-            : base(cachingStrategy)
+        public IncrementalListView(ListViewCachingStrategy cachingStrategy) : base(cachingStrategy)
         {
             ItemAppearing += OnItemAppearing;
         }
